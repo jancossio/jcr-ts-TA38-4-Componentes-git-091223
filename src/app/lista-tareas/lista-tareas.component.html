@@ -1,0 +1,13 @@
+
+<h2>Cosas por hacer:</h2>
+<div>
+    <ul class="task">
+        @for (tarea of tareas; track $index) {
+            <div>
+                <p> {{$index+1}}  - | {{ tarea.titulo }} | {{ tarea.descripcion }} |
+                <input type="checkbox" id="check" value="checkbox"/> | 
+                <button type="button" class="btn btn-dark" (click)="borrar($index+1)">Borrar</button></p>
+            </div>
+        }
+    </ul>
+</div> 

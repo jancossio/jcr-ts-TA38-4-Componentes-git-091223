@@ -1,0 +1,25 @@
+<form [formGroup]="GrupoForm">
+
+    <div class="container-md d-flex align-items-center justify-content-center">
+      <div class="row">
+          <div class="col-12 text-center border-2 py-4" id="titulo">
+            <h2>Agregar tarea:</h2>
+          </div>
+            <div class="col-3 mt-4 mb-2 px-2">
+              <p class="text-end">Titulo</p>
+            </div>
+            <div class="col-8 mt-4">
+                <input #formTitulo id="titulo" type="text" formControlName="titulo" class="form-control" placeholder="Titulo">
+            </div>
+            <div class="col-3 mt-4 mb-2 px-2">
+              <p class="text-end">Descripcion</p>
+            </div>
+            <div class="col-8 mt-4 mb-2 px-2">
+              <textarea #formDescripcion id="descripcion" type="text" formControlName="descripcion" class="form-control" placeholder="Descripcion"></textarea>
+            </div>
+            <div class="col-12 mt-4 mb-4 text-center">
+              <button class="btn btn-primary rounded border-0" type="submit" [disabled]="!GrupoForm.valid" (click)="guardar()">Guardar</button>
+            </div>
+      </div>
+    </div>
+  </form>
