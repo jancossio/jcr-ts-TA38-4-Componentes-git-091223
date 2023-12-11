@@ -1,13 +1,17 @@
 
 <h2>Cosas por hacer:</h2>
-<div>
-    <ul class="task">
-        @for (tarea of tareas; track $index) {
-            <li [ngClass]="{'strikethrough-styling': tarea.completada}">
-                <p> {{$index+1}}  - | {{ tarea.titulo }} | {{ tarea.descripcion }} |
-                <button type="button" class="btn btn-primary" (click)="finalizar($index)">Tachar</button> | 
-                <button type="button" class="btn btn-dark" (click)="borrar($index)">Borrar</button></p>
-            </li>
-        }
-    </ul>
-</div> 
+<div class="container-md d-flex">
+    <div class="row">
+        <div class="col-12 py-4" id="titulo">
+        <ul class="task">
+            @for (tarea of tareas; track $index) {
+                <li [ngClass]="{'strikethrough-styling': tarea.completada}">
+                    <p> {{$index+1}}  - | {{ tarea.titulo }} | {{ tarea.descripcion }} |
+                    <button type="button" class="btn btn-primary" (click)="finalizar($index)">Tachar</button> | 
+                    <button type="button" class="btn btn-dark" (click)="borrar($index)">Borrar</button></p>
+                </li>
+            }
+        </ul>
+        </div>
+    </div>
+</div>
