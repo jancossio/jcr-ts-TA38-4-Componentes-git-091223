@@ -3,11 +3,11 @@
 <div>
     <ul class="task">
         @for (tarea of tareas; track $index) {
-            <div>
+            <li [ngClass]="{'strikethrough-styling': tarea.completada}">
                 <p> {{$index+1}}  - | {{ tarea.titulo }} | {{ tarea.descripcion }} |
-                <input type="checkbox" id="check" value="checkbox"/> | 
-                <button type="button" class="btn btn-dark" (click)="borrar($index+1)">Borrar</button></p>
-            </div>
+                <button type="button" class="btn btn-primary" (click)="finalizar($index)">Tachar</button> | 
+                <button type="button" class="btn btn-dark" (click)="borrar($index)">Borrar</button></p>
+            </li>
         }
     </ul>
 </div> 

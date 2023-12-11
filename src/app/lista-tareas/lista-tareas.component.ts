@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { Tarea } from '../models/tarea';
+import {CommonModule} from "@angular/common"
 
 @Component({
   selector: 'app-lista-tareas',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './lista-tareas.component.html',
   styleUrl: './lista-tareas.component.css'
 })
@@ -13,14 +14,12 @@ export class ListaTareasComponent {
   tareas: Tarea[] = [];
 
   borrar(codTarea:number){
-    console.log('Eliminado');
-    const index = this.tareas.findIndex(tarea => tarea.codigo === codTarea);
-    this.tareas.splice(index,1);
+    this.tareas.splice(codTarea,1);
   }
 
-  tachar(codTarea:number){
-    const index = this.tareas.findIndex(tarea => tarea.codigo === codTarea);
-    this.tareas[index].completada = true;
+  finalizar(codTarea:number){
+    this.tareas[codTarea].completada = !this.tareas[codTarea].completada;
+    console.log(this.tareas[codTarea].completada);
   }
 
   agregarTarea(tarea: Tarea){
